@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="listaTareas">
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  	<link rel="stylesheet" type="text/css" href="css/flat-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/flat-ui.js"></script>
+  </head>
+  <body ng-controller="ListaController as listaCtrl">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<h1 class="navbar-brand">Lista de Tareas</h1>
+			<p class="navbar-text navbar-right"><a ng-click="listaCtrl.limpiarRealizadas()"><span class="fui-trash"></span>Limpiar Realizadas</a></p>
+    </nav>
+		<div class="container">
+			<div class="container">
+				<ul class="list-unstyled">
+					<li ng-repeat="tarea in listaCtrl.tareas">
+						<input type="checkbox" ng-model="tarea.realizada">
+						<span class="realizada-{{tarea.realizada}}">{{tarea.nombre}}</span>
+					</li>
+				</ul>
+				<blockquote><input type="checkbox"> {{listaCtrl.nuevaTarea}}</blockquote>
+				<form name="tareaForm" ng-submit="tareaForm.$valid && listaCtrl.agregaTarea()" novalidate>
+					<div class="row">
+						<div class="col-xs-10">
+							<textarea name="tarea-nueva" ng-model="listaCtrl.nuevaTarea" class="form-control input-lg flat" placeholder="Agregue una nueva tarea" required></textarea>
+						</div>
+						<div class="col-xs-2">
+							<input class="btn btn-hg btn-primary" type="submit" value="+">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+        
+
+  </body>
+</html>
