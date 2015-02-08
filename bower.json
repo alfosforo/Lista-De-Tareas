@@ -1,0 +1,10 @@
+{
+	"name": "Lista-De-Tareas",
+	"version": "0.0.1",
+	"dependencies": {
+		"jquery": "*",
+		"bootstrap": "*",
+		"flat-ui": "*",
+		"angular": "*"
+	}
+}
